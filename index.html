@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration System</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Page Header -->
+    <header>
+        <h1>Student Registration System</h1>
+        <p>Register students, edit or delete records, and store data locally.</p>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Registration Form -->
+        <form id="registrationForm">
+            <!-- Student Name (letters only) -->
+            <input type="text" id="studentName" name="studentName" required placeholder="Student Name"
+                oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" />
+
+            <!-- Student ID (numbers only) -->
+            <input type="number" id="studentId" name="studentId" required placeholder="Student ID"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+
+            <!-- Email field -->
+            <input type="email" id="emailId" name="emailId" required placeholder="Email ID" />
+
+            <!-- Contact No (10-digit number only) -->
+            <input type="tel" id="contactNo" name="contactNo" required placeholder="Contact No" maxlength="10"
+                minlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- Display Section for Registered Students -->
+        <section class="table-section">
+            <h2>Registered Students</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
